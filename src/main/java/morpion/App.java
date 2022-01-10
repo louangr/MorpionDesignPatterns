@@ -1,3 +1,5 @@
+package morpion;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -69,12 +71,17 @@ public class App {
     }
 
     private static void jouer() {
-        // TODO: vérifier qu'il y a dejà au moins deux joueurs présent dans la liste des joueurs sinon proposer d'aller en créer
+        if (config.getJoueurs().size() < 2) {
+            System.out.println("Joueurs enregistrés insuffisants pour débuter une partie");
+        }
+        else {
+            // TODO : persister la sauvegarde de la liste de Game pour garder un historique des parties (des deux joueurs de la partie et du vainqueur)
+            Game game = config.ajouterGame(new Game());
+            game.ajouterJoueurs();
+            game.initialisation();
+            game.demarrer();
 
-        // TODO: créer le jeu dans une classe Game
-        // qui demandera 2 joueurs par leur pseudo (via ConfigRepository.getJoueur(pseudo))
-        // qui leur fera jouer une partie (=> en implémentant un DesignPattern)
-        // qui felicitera le vainqueur et lui augmentera son score personnel (via Joueur.setScoreEnPlus(10))
-        // + si jamais on a le temps => sauvegarder chaque Game dans une List<Game> dans le ConfigRepository pour garder un historique des parties (des deux joueurs de la partie et du vainqueur)
-    }
+        }
+   }
+
 }

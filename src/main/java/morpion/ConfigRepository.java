@@ -1,3 +1,5 @@
+package morpion;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -12,9 +14,11 @@ public final class ConfigRepository implements PropertyChangeListener {
     private static final String nomConfig = "config.json";
     private static ConfigRepository instance;
     private static List<Joueur> joueurs;
+    private static List<Game> games;
 
     private ConfigRepository() {
         joueurs = new ArrayList<>();
+        games = new ArrayList<>();
         chargerJoueurs();
     }
 
@@ -61,7 +65,7 @@ public final class ConfigRepository implements PropertyChangeListener {
 
     private void chargerJoueurs() {
         try {
-            List<Joueur> joueursTemp = objectMapper.readValue(Paths.get(nomConfig).toFile(), new TypeReference<List<Joueur>>() {});
+            List<Joueur> joueursTemp = objectMapper.readValue(Paths.get(nomConfig).toFile(), new TypeReference<>() {});
 
             for (Joueur j: joueursTemp) {
                 Joueur nouveauJoueur = new Joueur(j.getPseudo());
@@ -72,4 +76,10 @@ public final class ConfigRepository implements PropertyChangeListener {
         } catch (Exception e) {
         }
     }
+
+    public Game ajouterGame(Game game) {
+        games.add(game);
+        return game;
+    }
+
 }

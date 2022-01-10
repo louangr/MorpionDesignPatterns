@@ -1,3 +1,5 @@
+package morpion;
+
 import java.util.Scanner;
 
 public class Utils {
@@ -30,4 +32,9 @@ public class Utils {
 
         return -1;
     }
+
+    public static int genererNombreAleatoire(int min, int max) {
+        return (int) (min + (Math.random() * ((max - min) + min)));
+    }
+
 }

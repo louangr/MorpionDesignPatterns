@@ -1,3 +1,5 @@
+package morpion;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Objects;
@@ -6,6 +8,7 @@ public class Joueur {
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private String pseudo;
     private int score;
+    private String icone;
 
     public Joueur() {
         super();
@@ -22,6 +25,14 @@ public class Joueur {
 
     public int getScore() {
         return score;
+    }
+
+    public String getIcone() {
+        return icone;
+    }
+
+    public void setIcone(String icone) {
+        this.icone = icone;
     }
 
     public void setScoreEnPlus(int score) {
