@@ -77,9 +77,7 @@ public class App {
         else {
             // TODO : persister la sauvegarde de la liste de Game pour garder un historique des parties (des deux joueurs de la partie et du vainqueur)
             Game game = config.ajouterGame(new Game());
-            game.ajouterJoueurs();
-            game.initialisation();
-            game.demarrer();
+            game.demarrerEtat();
 
         }
    }
