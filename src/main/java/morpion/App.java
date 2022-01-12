@@ -16,7 +16,6 @@ public class App {
             System.out.println("1 - Jouer");
             System.out.println("2 - Ajouter un joueur");
             System.out.println("3 - Lister les joueurs");
-            System.out.println("4 - Tester Ajout Score Joueur");
             System.out.println("0 - Quitter\n");
 
             choice = (int) Utils.demanderNombre("Votre choix : ", true, scanner);
@@ -26,7 +25,6 @@ public class App {
                 case 1 -> jouer();
                 case 2 -> ajouterUnJoueur();
                 case 3 -> listerLesJoueurs();
-                case 4 -> testAjoutScoreJoueur();
                 case 0 -> scanner.close();
                 default -> {
                     scanner.close();
@@ -36,12 +34,6 @@ public class App {
         } while(choice != 0);
 
         System.out.println("AU REVOIR\n\n");
-    }
-
-    private static void testAjoutScoreJoueur() {
-        String pseudo = Utils.demanderString("Le pseudo (score +10):", scanner);
-        Joueur joueur = config.getJoueur(pseudo);
-        joueur.setScoreEnPlus(10);
     }
 
     private static void listerLesJoueurs() {
