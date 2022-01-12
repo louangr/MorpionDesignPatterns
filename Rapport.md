@@ -27,13 +27,14 @@ Le Singleton est utilisé dans le cas du `ConfigRepository` car le fait qu'il y 
 
 L'Observer est utilisé dans le cas du `ConfigRepository`, pour qu'il observe ou qu'il soit tenu informé de chaque changement de chaque `Joueur`. Ainsi à chaque changement d'un `Joueur`, en l'occurence à chaque `setScoreEnPlus(int score)`, le `ConfigRepository` appelle sa méthode `sauvegarderJoueurs()` laquelle sauvegarde cette dernière modification.
 
-###  3. ...
+###  3. Le State
 </br>
 
 <p align="center">
-  <img src="./docs/....jpg" />
+  <img src="./docs/UMLState.jpg" />
 </p>
 
-...
-
-++ mettre à jour le UMLProject.jpg
+Le State est utilisé lorsqu'on souhaite lancer une partie de Morpion en utilisant la classe `Game`. Une partie peut avoir différents états :
+- l'état de **Configuration**, est l'état initiale d'une partie pour sa préparation : ajout des joueurs, génération des icônes et du joueur débutant la partie aléatoirement.
+- l'état **Jouer**, qui débute après la configuration et où les deux joueurs jouent à tour de rôle tant qu'il n'y pas de gagnants ou que la partie n'est pas nulle.
+- l'état **Termine**, qui se lance une fois la partie terminée afin d'afficher le résultat et d'ajouter les points au vainqueur si la partie n'est pas nulle.

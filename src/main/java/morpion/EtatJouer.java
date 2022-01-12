@@ -81,7 +81,7 @@ public class EtatJouer extends Etat {
         return false;
     }
 
-    public void afficherGrille() {
+    private void afficherGrille() {
 
         StringBuilder sb = new StringBuilder();
 
